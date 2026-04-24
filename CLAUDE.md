@@ -1,0 +1,2 @@
+@TEMPLATE.md
+@AGENTS.md
