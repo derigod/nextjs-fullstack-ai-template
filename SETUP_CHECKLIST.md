@@ -114,22 +114,47 @@ Once all required items are checked, you're ready to start building your applica
 
 ## ⚠️ Production Deployment Checklist
 
+**📘 Complete deployment guide:** See [DEPLOYMENT.md](./DEPLOYMENT.md)
+
 When you're ready to deploy:
 
-- [ ] All environment variables set in hosting provider
-- [ ] Production database created and migrated
-- [ ] **BETTER_AUTH_SECRET** is different from development
-- [ ] Google OAuth redirect URI includes production domain
-- [ ] **NEXT_PUBLIC_APP_URL** set to production domain
+### Pre-Deployment
+- [ ] All local development complete and tested
+- [ ] Code pushed to GitHub
+- [ ] All environment variables documented
+
+### Vercel Setup
+- [ ] Vercel account created
+- [ ] GitHub repository imported to Vercel
+- [ ] Production database created (Neon Postgres in Vercel Storage)
+- [ ] `POSTGRES_URL` from production database obtained
+
+### Environment Variables in Vercel
+- [ ] `POSTGRES_URL` - Production database URL
+- [ ] `BETTER_AUTH_SECRET` - NEW secret (different from dev!)
+- [ ] `GOOGLE_CLIENT_ID` - Same as dev
+- [ ] `GOOGLE_CLIENT_SECRET` - Same as dev
+- [ ] `GOOGLE_AI_API_KEY` - Same as dev
+- [ ] `NEXT_PUBLIC_APP_URL` - Production URL
+- [ ] All optional env vars as needed
+
+### Deployment
+- [ ] Initial deployment completed
+- [ ] Database migrations run on production
+- [ ] Production URL obtained from Vercel
+
+### Post-Deployment
+- [ ] `NEXT_PUBLIC_APP_URL` updated with actual domain
+- [ ] Google OAuth redirect URI updated with production domain
 - [ ] Email integration configured (not console logging)
 - [ ] Error monitoring added (Sentry, etc.)
+- [ ] All features tested on production
 - [ ] Analytics configured (optional)
-- [ ] Rate limiting implemented for API routes
+- [ ] Rate limiting implemented
 - [ ] Security headers configured
-- [ ] SSL/TLS certificate configured
-- [ ] Domain DNS configured
-- [ ] Build succeeds: `npm run build`
-- [ ] Tested in production environment
+- [ ] Custom domain configured (optional)
+
+**📖 Detailed steps:** [DEPLOYMENT.md](./DEPLOYMENT.md)
 
 ## 📝 Notes
 

@@ -258,25 +258,38 @@ The template includes these pre-configured tables:
 
 ## 🚀 Deployment
 
-### Deploy to Vercel (Recommended)
+**📘 Full deployment guide:** See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete step-by-step instructions.
 
-1. Push your code to GitHub
-2. Import project in [Vercel Dashboard](https://vercel.com/new)
-3. Configure environment variables (same as `.env` but in Vercel UI)
-4. Deploy!
+### Quick Deployment Summary
 
-**Important:** Make sure to set all environment variables in the Vercel dashboard before deploying.
+1. **Prepare:** Gather all environment variables from `.env`
+2. **Create Vercel Project:** Import your GitHub repository
+3. **Set Up Production Database:** Create Neon Postgres in Vercel Storage
+4. **Configure Environment Variables:** Add all env vars in Vercel dashboard
+5. **Deploy:** Vercel builds and deploys automatically
+6. **Run Migrations:** Execute database migrations on production
+7. **Update URLs:** Set production domain in `NEXT_PUBLIC_APP_URL` and Google OAuth
+
+### Critical Production Setup
+
+⚠️ **Before deploying, you MUST:**
+- Create a production database (see Step 4 in DEPLOYMENT.md)
+- Generate a NEW `BETTER_AUTH_SECRET` for production (different from dev)
+- Add production callback URL to Google OAuth credentials
+- Set up email service (currently logs to console - not suitable for production)
 
 ### Environment Variables for Production
 
-Remember to set these in your hosting provider:
-- `POSTGRES_URL` - Production database
-- `BETTER_AUTH_SECRET` - New secret (different from dev)
-- `GOOGLE_CLIENT_ID` - Same as dev, with production callback URL added
-- `GOOGLE_CLIENT_SECRET` - Same as dev
-- `GOOGLE_AI_API_KEY` - Your API key
-- `NEXT_PUBLIC_APP_URL` - Your production domain
-- `BLOB_READ_WRITE_TOKEN` - (Optional) Vercel Blob token
+| Variable | Where to Get | Notes |
+|----------|--------------|-------|
+| `POSTGRES_URL` | Vercel/Neon Database | **Different from local!** |
+| `BETTER_AUTH_SECRET` | `openssl rand -base64 32` | **Must be different from dev!** |
+| `GOOGLE_CLIENT_ID` | Google Cloud Console | Same as dev |
+| `GOOGLE_CLIENT_SECRET` | Google Cloud Console | Same as dev |
+| `GOOGLE_AI_API_KEY` | Google AI Studio | Same as dev |
+| `NEXT_PUBLIC_APP_URL` | Vercel deployment URL | e.g., `https://your-app.vercel.app` |
+
+**📖 Complete deployment guide:** [DEPLOYMENT.md](./DEPLOYMENT.md)
 
 ---
 

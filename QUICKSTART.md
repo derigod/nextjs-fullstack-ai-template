@@ -106,6 +106,21 @@ Claude will:
    - Run `npm run db:generate`
    - Run `npm run db:migrate`
 
+### Option C: Deploy to Production
+
+Once your app is ready for production:
+
+**📘 Follow the complete deployment guide:** [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+**Quick summary:**
+1. Create Vercel account
+2. Import your GitHub repository
+3. Set up production database (Neon Postgres)
+4. Configure environment variables
+5. Deploy!
+
+Your app will be live at `https://your-app.vercel.app` with automatic CI/CD from GitHub.
+
 ---
 
 ## Troubleshooting

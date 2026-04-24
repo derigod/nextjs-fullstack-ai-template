@@ -315,6 +315,7 @@ This template is now ready to be pushed to GitHub as a reusable template reposit
 .
 ├── README.md                   # Main documentation (for humans)
 ├── QUICKSTART.md              # 5-minute setup guide (for humans)
+├── DEPLOYMENT.md              # Production deployment guide (for humans)
 ├── SETUP_CHECKLIST.md         # Interactive setup checklist (for humans)
 ├── WHATS_MISSING.md           # Gap analysis & future enhancements (for humans)
 ├── TEMPLATE.md                # Onboarding instructions (for Claude)
