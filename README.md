@@ -158,30 +158,142 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🤖 Working with Claude Code
 
-This template is optimized for development with [Claude Code](https://claude.ai/code). Once you've completed the setup above, open the project in Claude Code to begin building your application.
+This template is optimized for development with [Claude Code](https://claude.ai/code).
 
-### What Claude Will Do
+### Complete Setup Process with Claude
 
-When you first open this project in Claude Code, it will:
-1. **Understand the template** - Read the configuration and see what's already built
-2. **Ask about your project** - Prompt you for what you want to build
-3. **Suggest changes** - Recommend additions, modifications, or new features based on your needs
-4. **Guide implementation** - Help you build features following the established patterns
+**Claude will guide you through THREE stages:**
 
-### Example Conversation Starters
+#### Stage 1: Verify Dependencies ✅
+Claude will check that you have installed:
+- Node.js 18+
+- Git
+- Docker Desktop
+- All required accounts (GitHub, Vercel, Google Cloud, AI provider)
 
-After setting up the template, try asking Claude:
-- "I want to build [describe your app]. What should we add first?"
-- "Help me add a feature for [specific functionality]"
-- "Review the current setup and suggest improvements"
-- "Add [feature] to this application"
+If anything is missing, Claude will guide you to install it.
 
-Claude has been configured with:
-- Knowledge of all installed packages and their versions
-- Understanding of the authentication system
-- Familiarity with the database schema
-- AI integration patterns
-- UI component library
+#### Stage 2: Set Up Both Environments ✅
+Claude will help you configure:
+
+**Local Development:**
+- Environment variables
+- Local PostgreSQL database (Docker)
+- Google OAuth for localhost
+- AI integration
+- Test sign up/sign in locally
+
+**Production Deployment:**
+- Vercel project creation
+- Production database (Neon)
+- Environment variables in Vercel
+- Google OAuth for production domain
+- Deploy and test live app
+- Verify CI/CD pipeline (GitHub → Vercel)
+
+**⚠️ Important:** Claude will NOT help build features until BOTH environments are verified working.
+
+#### Stage 3: Build Your Application 🚀
+Once both environments are working:
+1. Claude asks what you want to build
+2. Creates a plan tailored to your needs
+3. Implements features following best practices
+4. Tests locally first
+5. Helps deploy to production
+
+### Example First Conversation
+
+```
+You: [Open Claude Code in this project]
+
+Claude: 👋 Welcome! I see you're using the Next.js template.
+        Let's verify your setup before building...
+        
+        Do you have Node.js, Git, and Docker installed?
+        Have you set up local development (QUICKSTART.md)?
+        Have you deployed to production (DEPLOYMENT.md)?
+
+You: I have Node and Git but haven't set up anything else yet.
+
+Claude: Perfect! I'll guide you through:
+        1. First, installing Docker
+        2. Then setting up local development (5 min)
+        3. Then deploying to production (20 min)
+        4. THEN we'll build your app!
+        
+        Let's start - what operating system are you on?
+```
+
+### Why This Order Matters
+
+Setting up BOTH environments first means:
+- ✅ You can develop features locally (fast iteration)
+- ✅ You can deploy to production easily (just `git push`)
+- ✅ You won't hit surprises when deploying later
+- ✅ You have a professional development workflow from day one
+
+### Once Setup is Complete
+
+After both environments work, Claude will ask:
+- "What type of application are you building?"
+- "Who are the main users?"
+- "What are the core features you need?"
+
+Then Claude will help you build using the **GSD (Get-Shit-Done) framework**.
+
+### Building with GSD Framework
+
+This template includes the **GSD framework** - a structured approach to building applications:
+
+**What GSD Does:**
+- 📋 Breaks your app into manageable phases
+- 🎯 Plans each feature thoroughly before coding
+- ✅ Executes with built-in quality checks
+- 📊 Tracks progress and maintains documentation
+- 🔄 Ensures code review between each phase
+- 🚀 Deploys incrementally with verification
+
+**Example GSD Workflow:**
+```
+You: "I want to build a task management app with teams"
+
+Claude: I'll use the GSD framework to help you build this systematically.
+
+Phase 1: Team Management
+  → Plan data model
+  → Implement team CRUD
+  → Test and verify
+  → Deploy to production
+
+Phase 2: Task Management  
+  → Plan task features
+  → Implement task CRUD
+  → Link to teams
+  → Test and deploy
+
+... and so on
+```
+
+**GSD Commands Claude Will Use:**
+- `/gsd-new-project` - Start a new project with roadmap
+- `/gsd-plan-phase` - Plan the next phase
+- `/gsd-execute-phase` - Build the phase step-by-step
+- `/gsd-verify-work` - Verify everything works
+- `/gsd-ship` - Create PR and deploy
+
+**Why GSD?**
+- ✅ Systematic approach prevents missed requirements
+- ✅ Built-in quality checks catch issues early
+- ✅ Progress tracking shows what's done and what's next
+- ✅ Incremental deployment reduces risk
+- ✅ Documentation auto-generated as you build
+
+---
+
+**Ready to start?** Open this project in Claude Code and let Claude guide you through:
+1. ✅ Complete setup verification (both environments)
+2. ✅ Dependency checks
+3. 🚀 Structured app development with GSD framework
 
 ---
 

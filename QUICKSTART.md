@@ -2,6 +2,33 @@
 
 Get up and running in 5 minutes.
 
+## 0. Verify Dependencies (2 min)
+
+**Before starting, make sure you have these installed:**
+
+```bash
+# Check Node.js (need 18+)
+node --version
+
+# Check npm
+npm --version
+
+# Check Git
+git --version
+
+# Check Docker
+docker --version
+```
+
+**Don't have something?** Install it:
+- **Node.js 18+**: https://nodejs.org/
+- **Git**: https://git-scm.com/
+- **Docker Desktop**: https://www.docker.com/products/docker-desktop/
+
+**⚠️ Stop here if anything is missing!** Ask Claude for help installing.
+
+---
+
 ## 1. Clone & Install (1 min)
 
 ```bash
@@ -74,6 +101,29 @@ Open **http://localhost:3000** 🎉
 ✅ Sign in  
 ✅ Visit `/dashboard` to see your profile  
 ✅ Try `/chat` for AI chat
+
+**🎉 Local development environment is ready!**
+
+---
+
+## ⚠️ IMPORTANT: Complete Setup Before Building
+
+You now have **local development** working. Before building your app:
+
+**Next: Set up production deployment**
+👉 Follow [DEPLOYMENT.md](./DEPLOYMENT.md) to deploy to Vercel
+
+**Why deploy before building?**
+- Test the complete workflow (local → GitHub → production)
+- Catch configuration issues early
+- Ensure both environments work
+- Set up CI/CD pipeline
+
+**Once BOTH environments work:**
+✅ Local development (localhost:3000)  
+✅ Production deployment (Vercel)  
+
+**THEN you're ready to build your application!**
 
 ---
 

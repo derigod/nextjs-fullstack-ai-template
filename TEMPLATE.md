@@ -73,21 +73,79 @@ This is a **new template project** if:
 
 When you detect this is a new template initialization, follow this flow:
 
-### Step 1: Welcome and Verify Setup
+### Step 1: Welcome and Verify BOTH Environments
 
 Start with:
 ```
 Welcome! I can see you're starting a new project with this template. Let me help you get going.
 
-First, let me verify your setup is complete:
-- Have you updated all the required environment variables in .env?
-- Have you run the database migrations (npm run db:migrate)?
-- Is the app running successfully on localhost:3000?
+Before we start building your application, I need to verify that BOTH your development environments are set up correctly. This is crucial for a smooth development experience.
+
+**Let's check your local development environment:**
+1. Is the app running successfully on localhost:3000?
+2. Have you updated all required environment variables in .env?
+3. Have you run database migrations (npm run db:migrate)?
+4. Can you sign up and sign in locally?
+
+**Now let's check your production environment:**
+1. Have you deployed to Vercel? (If not, we'll do this together)
+2. Is your production app live at a Vercel URL?
+3. Have you set up the production database (Neon)?
+4. Can you sign in on your production URL?
+5. When you push to GitHub, does it auto-deploy to Vercel?
+
+If EITHER environment is not set up, I'll guide you through it step-by-step before we start building your application.
 ```
 
-If setup is incomplete, guide them to complete it before proceeding.
+**Critical: DO NOT proceed to Step 2 (Understanding Their Project) until BOTH environments are verified working.**
 
-### Step 2: Understand Their Project
+If local setup is incomplete:
+- Guide them through QUICKSTART.md
+- Help install any missing dependencies (Node.js, Docker, Git)
+- Verify each step completes successfully
+
+If production setup is incomplete:
+- Guide them through DEPLOYMENT.md
+- Help create Vercel account
+- Walk through database setup
+- Verify deployment works
+- Test the CI/CD pipeline (make a small change, push, verify auto-deploy)
+
+**Why this matters:** Users should have a complete professional workflow (local dev + production + CI/CD) BEFORE building features. This prevents frustration later and ensures they can deploy changes easily.
+
+### Step 2: Verify Dependencies
+
+Before diving into their project, quickly verify they have all required software:
+
+```
+Great! Now let me quickly verify you have all the tools you need.
+
+Can you run these commands and tell me the results?
+```bash
+node --version   # Need 18+
+npm --version
+git --version
+docker --version
+```
+
+If you see version numbers for all of these, you're good to go! 
+
+If any are missing, I'll help you install them now before we continue.
+```
+
+**If dependencies are missing:**
+- Guide them to download and install (provide links)
+- Wait for confirmation they've installed
+- Verify installation worked
+- Only proceed when all dependencies are confirmed
+
+**Required dependencies:**
+- Node.js 18+
+- npm/pnpm/yarn
+- Git
+- Docker Desktop (for local database)
+
+### Step 3: Understand Their Project
 
 Ask clarifying questions to understand what they want to build:
 
@@ -114,7 +172,7 @@ To help me suggest the best approach, can you tell me:
    (e.g., Stripe, Twilio, email service, analytics, etc.)
 ```
 
-### Step 3: Analyze Current Template vs. Needs
+### Step 4: Analyze Current Template vs. Needs
 
 Based on their answers, create a mental model of:
 
@@ -136,7 +194,7 @@ Based on their answers, create a mental model of:
 - Example features they don't need
 - Unused providers or configurations
 
-### Step 4: Present Recommendation Plan
+### Step 5: Present Recommendation Plan
 
 Provide a clear, prioritized plan:
 
@@ -164,12 +222,43 @@ Based on what you want to build, here's my recommendation:
 Would you like me to start with Phase 1, or would you prefer to jump straight into a specific feature?
 ```
 
-### Step 5: Execution Mode
+### Step 6: Execution Mode
 
 Once they choose a starting point:
+- **Recommend using the GSD (Get-Shit-Done) framework** for structured development
 - Use the `/create-spec` skill for any non-trivial feature
 - Follow the AGENTS.md workflow for feature development
 - Maintain template quality standards (type safety, error handling, etc.)
+
+**About GSD Framework:**
+This template includes the GSD (Get-Shit-Done) framework, which provides:
+- Structured project planning with phases and milestones
+- Step-by-step execution with automatic verification
+- Code review and quality checks
+- Progress tracking and documentation
+
+**Recommend to users:**
+```
+Now that your environments are set up, I recommend using the GSD framework to build your application systematically.
+
+The GSD framework will help us:
+1. Break your app into manageable phases
+2. Plan each feature thoroughly before coding
+3. Execute with built-in quality checks
+4. Track progress and maintain documentation
+
+Would you like me to use GSD to plan and build your application step-by-step?
+```
+
+**If user agrees:**
+- Use GSD commands from the skills list (check system-reminder for available GSD skills)
+- Start with `/gsd-new-project` or `/gsd-plan-phase` depending on project state
+- Guide them through structured development
+
+**If user prefers manual approach:**
+- Use `/create-spec` and `/implement-feature` skills
+- Follow AGENTS.md workflow
+- Still maintain quality standards
 
 ---
 
@@ -276,12 +365,21 @@ Guide users to leverage the included skills:
 
 A successful onboarding conversation should result in:
 
-1. ✅ Developer understands what the template includes
-2. ✅ Developer has a clear plan for their first features
-3. ✅ Template example code is cleaned up appropriately
-4. ✅ Database schema reflects their domain model
-5. ✅ Core features are implemented following template patterns
-6. ✅ Production readiness gaps are documented/addressed
+1. ✅ **BOTH environments verified and working:**
+   - ✅ Local development environment (localhost:3000)
+   - ✅ Production environment (Vercel deployment)
+   - ✅ CI/CD pipeline tested (push to GitHub → auto-deploy)
+2. ✅ **All dependencies installed and confirmed:**
+   - ✅ Node.js 18+, Git, Docker all verified
+   - ✅ All required accounts created (GitHub, Vercel, Google Cloud, AI provider)
+3. ✅ Developer understands what the template includes
+4. ✅ Developer has a clear plan for their first features
+5. ✅ Template example code is cleaned up appropriately
+6. ✅ Database schema reflects their domain model
+7. ✅ Core features are implemented following template patterns
+8. ✅ Production readiness gaps are documented/addressed
+
+**Critical:** Items 1 and 2 MUST be completed before items 3-8. Do not help build features until the complete infrastructure is verified working.
 
 ---
 
@@ -344,16 +442,45 @@ This template gives you a production-ready foundation with:
 - ✅ PostgreSQL database (Drizzle ORM)
 - ✅ AI integration (Vercel AI SDK with Google AI/Gemini)
 - ✅ UI components (shadcn/ui + Tailwind CSS)
-- ✅ Example features (todos, chat interface)
+- ✅ Docker Compose for local development
+- ✅ CI/CD pipeline ready for Vercel
 
-Before we start building, let me make sure everything is set up correctly.
+Before we start building your application, I need to verify you have a complete professional development setup. This means BOTH a local development environment AND a production deployment working together.
 
-**Quick Setup Check:**
-1. Have you updated all environment variables in `.env`? (especially POSTGRES_URL, BETTER_AUTH_SECRET, Google credentials)
-2. Have you run database migrations? (`npm run db:migrate`)
-3. Is the app running on http://localhost:3000?
+**First, let me check your local development environment:**
 
-Once that's confirmed, I'll help you plan what to build next! 🚀
+1. Do you have these installed? (Run these commands to check):
+   ```bash
+   node --version   # Need 18+
+   npm --version
+   git --version
+   docker --version
+   ```
+
+2. Have you completed the local setup from QUICKSTART.md?
+   - Updated environment variables in `.env`?
+   - Started Docker database? (`docker compose up -d`)
+   - Run database migrations? (`npm run db:migrate`)
+   - App running on http://localhost:3000?
+   - Can you sign up and sign in locally?
+
+**Next, let's verify your production environment:**
+
+1. Have you deployed to Vercel yet?
+2. If yes:
+   - What's your production URL?
+   - Can you sign in on production?
+   - When you push to GitHub, does it auto-deploy?
+
+3. If not yet deployed:
+   - No problem! I'll guide you through DEPLOYMENT.md step-by-step
+   - We'll set up Vercel, create a production database, and test the CI/CD pipeline
+   - It takes about 15-20 minutes
+
+**Why verify both environments first?**
+Because you need a complete development workflow (local → GitHub → production) before building features. This ensures you can develop locally, test changes, and deploy them automatically.
+
+Let me know what's set up and what still needs to be done, and I'll help you complete everything before we start building your app! 🚀
 ```
 
 ---
