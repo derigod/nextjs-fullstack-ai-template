@@ -4,30 +4,42 @@ A production-ready Next.js template with everything you need to build modern web
 
 ## 🎯 What's Included
 
-This template comes pre-configured with:
+This template comes pre-configured with a carefully chosen default stack, **but every component is swappable**!
 
-### Core Infrastructure
+### Default Stack (All Components Swappable!)
+
+#### Core Infrastructure
 - ✅ **Next.js 16** - App Router with React Server Components
 - ✅ **TypeScript** - Full type safety across the stack
 - ✅ **PostgreSQL Database** - Configured with Drizzle ORM
-- ✅ **Better Auth** - Complete authentication system with:
+  - 🔄 *Can swap to: Supabase, Prisma, MongoDB*
+- ✅ **Better Auth** - Complete authentication system
   - Email/password authentication
   - Google OAuth integration
   - Session management
-  - Email verification flows (terminal logging - production email integration needed)
+  - Email verification flows
+  - 🔄 *Can swap to: Supabase Auth, Clerk, Auth.js*
 
-### AI Integration
+#### AI Integration
 - ✅ **Vercel AI SDK** - Streaming AI chat responses
 - ✅ **Multiple AI Providers** - Pre-configured for:
   - Google AI (Gemini) - Free tier available
   - OpenRouter - Access to 100+ models
-  - Extensible for other providers
+  - 🔄 *Can swap to: LangChain, OpenAI SDK, Anthropic SDK*
 
-### UI & Styling
+#### UI & Styling
 - ✅ **shadcn/ui** - High-quality React components (New York style)
+  - 🔄 *Can swap to: Material UI, Chakra UI, Headless UI*
 - ✅ **Tailwind CSS v4** - Utility-first CSS framework
+  - 🔄 *Can swap to: CSS Modules, styled-components, Emotion*
 - ✅ **Dark Mode** - Built-in theme switching
 - ✅ **Responsive Design** - Mobile-first approach
+
+#### Deployment
+- ✅ **Vercel** - Zero-config deployment with CI/CD
+  - 🔄 *Can swap to: Netlify, Self-hosted (Docker), AWS/Azure/GCP*
+
+> **📚 See [STACK_OPTIONS.md](./STACK_OPTIONS.md)** for detailed comparison of all alternatives and how to swap them.
 
 ### Pre-built Components
 - Authentication UI (sign in, sign up, user menu)
@@ -191,7 +203,34 @@ Claude will help you configure:
 - Deploy and test live app
 - Verify CI/CD pipeline (GitHub → Vercel)
 
-**⚠️ Important:** Claude will NOT help build features until BOTH environments are verified working.
+#### Stage 2.5: Choose Your Stack (Optional) 🔄
+
+**Before building features, Claude will ask:**
+
+```
+Do you want to use the default stack or swap any components?
+```
+
+**You can swap:**
+- 🔐 Auth: Better Auth → Supabase Auth, Clerk, Auth.js
+- 🗄️ Database: Drizzle → Supabase, Prisma, MongoDB
+- 🤖 AI: Vercel AI SDK → LangChain, OpenAI, Anthropic
+- 🎨 UI: shadcn/ui → Material UI, Chakra UI
+- 🚀 Deploy: Vercel → Netlify, Self-hosted
+
+**Claude will:**
+- Explain pros/cons of each option
+- Recommend based on your use case
+- Help you swap components safely
+- Test both environments after swapping
+- Update documentation with your choices
+
+**📖 See [STACK_OPTIONS.md](./STACK_OPTIONS.md)** for all available alternatives
+
+**⚠️ Important:** Claude will NOT help build features until:
+- BOTH environments are verified working
+- Stack choices are confirmed (default or swapped)
+- Any swaps are tested in both environments
 
 #### Stage 3: Build Your Application 🚀
 Once both environments are working:

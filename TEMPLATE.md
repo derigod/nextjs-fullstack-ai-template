@@ -71,7 +71,7 @@ This is a **new template project** if:
 
 ## Onboarding Flow
 
-When you detect this is a new template initialization, follow this flow:
+When you detect this is a new template initialization, follow this **7-step flow**:
 
 ### Step 1: Welcome and Verify BOTH Environments
 
@@ -145,7 +145,69 @@ If any are missing, I'll help you install them now before we continue.
 - Git
 - Docker Desktop (for local database)
 
-### Step 3: Understand Their Project
+### Step 3: Check Stack Preferences
+
+**IMPORTANT:** Before understanding their project, ask if they want to use the default stack or swap any components.
+
+```
+Perfect! Both environments are working. Before we start planning your application, I want to check if you're happy with the default tech stack or if you'd like to swap any components.
+
+**Current Stack:**
+- 🔐 **Auth:** Better Auth (self-hosted, email + OAuth)
+- 🗄️ **Database:** PostgreSQL + Drizzle ORM
+- 🤖 **AI:** Vercel AI SDK (Google AI / OpenRouter)
+- 🎨 **UI:** shadcn/ui + Tailwind CSS
+- 🚀 **Deploy:** Vercel
+
+**Common Alternatives:**
+- 🔐 **Auth:** Supabase Auth, Clerk, Auth.js
+- 🗄️ **Database:** Supabase, Prisma ORM, MongoDB
+- 🤖 **AI:** LangChain, OpenAI SDK, Anthropic SDK
+- 🎨 **UI:** Material UI, Chakra UI, Headless UI
+- 🚀 **Deploy:** Netlify, Self-hosted, AWS/Azure/GCP
+
+**Do you want to:**
+1. **Use the default stack** (recommended for most projects)
+2. **Swap specific components** (I can help you choose and migrate)
+3. **Not sure** (I can recommend based on your use case)
+
+If you want to explore alternatives, I can show you the pros/cons of each option and help you decide. See STACK_OPTIONS.md for detailed comparisons.
+```
+
+**If they want to swap:**
+1. Open and reference STACK_OPTIONS.md
+2. Discuss their use case to recommend best alternative
+3. Explain trade-offs clearly (vendor lock-in, pricing, complexity)
+4. Get confirmation before proceeding
+5. Guide them through the swap step-by-step
+6. Verify both environments still work after swap
+7. Update documentation with their stack choices
+
+**If they want to use defaults:**
+- Confirm and move to Step 4
+
+**If they're not sure:**
+- Wait until Step 4 (understand their project)
+- Make recommendations based on their specific use case
+- Come back to stack decisions if needed
+
+**Important Guidelines for Stack Swaps:**
+
+**DO:**
+- ✅ Explain trade-offs honestly (cost, lock-in, complexity)
+- ✅ Recommend based on their specific use case
+- ✅ Help them swap BEFORE building features
+- ✅ Verify environments work after swap
+- ✅ Update documentation with changes
+
+**DON'T:**
+- ❌ Swap without understanding why they want to
+- ❌ Recommend swaps just because they're "better"
+- ❌ Swap multiple components at once
+- ❌ Skip testing after swapping
+- ❌ Forget to remove old dependencies
+
+### Step 4: Understand Their Project
 
 Ask clarifying questions to understand what they want to build:
 
@@ -172,7 +234,14 @@ To help me suggest the best approach, can you tell me:
    (e.g., Stripe, Twilio, email service, analytics, etc.)
 ```
 
-### Step 4: Analyze Current Template vs. Needs
+**Based on their answers in Step 4, you might recommend stack swaps:**
+
+For example:
+- "You mentioned needing real-time features - Supabase might be better than our default stack"
+- "Since you're building an enterprise app, Clerk's organization features could be valuable"
+- "For your AI agent use case, LangChain would be more suitable than Vercel AI SDK"
+
+### Step 5: Analyze Current Template vs. Needs
 
 Based on their answers, create a mental model of:
 
@@ -194,7 +263,7 @@ Based on their answers, create a mental model of:
 - Example features they don't need
 - Unused providers or configurations
 
-### Step 5: Present Recommendation Plan
+### Step 6: Present Recommendation Plan
 
 Provide a clear, prioritized plan:
 
@@ -222,7 +291,7 @@ Based on what you want to build, here's my recommendation:
 Would you like me to start with Phase 1, or would you prefer to jump straight into a specific feature?
 ```
 
-### Step 6: Execution Mode
+### Step 7: Execution Mode
 
 Once they choose a starting point:
 - **Recommend using the GSD (Get-Shit-Done) framework** for structured development
@@ -372,14 +441,21 @@ A successful onboarding conversation should result in:
 2. ✅ **All dependencies installed and confirmed:**
    - ✅ Node.js 18+, Git, Docker all verified
    - ✅ All required accounts created (GitHub, Vercel, Google Cloud, AI provider)
-3. ✅ Developer understands what the template includes
-4. ✅ Developer has a clear plan for their first features
-5. ✅ Template example code is cleaned up appropriately
-6. ✅ Database schema reflects their domain model
-7. ✅ Core features are implemented following template patterns
-8. ✅ Production readiness gaps are documented/addressed
+3. ✅ **Stack preferences confirmed:**
+   - ✅ Using default stack OR
+   - ✅ Alternative components swapped and tested
+   - ✅ Both environments still work after any swaps
+4. ✅ Developer understands what the template includes
+5. ✅ Developer has a clear plan for their first features
+6. ✅ Template example code is cleaned up appropriately
+7. ✅ Database schema reflects their domain model
+8. ✅ Core features are implemented following template patterns
+9. ✅ Production readiness gaps are documented/addressed
 
-**Critical:** Items 1 and 2 MUST be completed before items 3-8. Do not help build features until the complete infrastructure is verified working.
+**Critical:** Items 1, 2, and 3 MUST be completed before items 4-9. Do not help build features until:
+- Complete infrastructure is verified working
+- Stack choices are confirmed (default or swapped)
+- All swaps are tested in both environments
 
 ---
 
@@ -437,13 +513,13 @@ When you detect a new template project, start with something like:
 ```
 👋 Welcome to your new project! I can see you're starting from the full-stack Next.js template.
 
-This template gives you a production-ready foundation with:
-- ✅ Authentication (Better Auth with email/password + Google OAuth)
-- ✅ PostgreSQL database (Drizzle ORM)
-- ✅ AI integration (Vercel AI SDK with Google AI/Gemini)
-- ✅ UI components (shadcn/ui + Tailwind CSS)
+This template gives you a production-ready foundation with a flexible, swappable stack:
+- ✅ Authentication (Better Auth - or swap to Supabase, Clerk, Auth.js)
+- ✅ PostgreSQL database (Drizzle ORM - or swap to Supabase, Prisma, MongoDB)
+- ✅ AI integration (Vercel AI SDK - or swap to LangChain, OpenAI, Anthropic)
+- ✅ UI components (shadcn/ui - or swap to Material UI, Chakra UI)
 - ✅ Docker Compose for local development
-- ✅ CI/CD pipeline ready for Vercel
+- ✅ CI/CD pipeline ready for Vercel (or swap to Netlify, self-hosted)
 
 Before we start building your application, I need to verify you have a complete professional development setup. This means BOTH a local development environment AND a production deployment working together.
 
@@ -476,6 +552,12 @@ Before we start building your application, I need to verify you have a complete 
    - No problem! I'll guide you through DEPLOYMENT.md step-by-step
    - We'll set up Vercel, create a production database, and test the CI/CD pipeline
    - It takes about 15-20 minutes
+
+**Once both environments are working, I'll ask about your stack preferences:**
+- Do you want to use the default stack?
+- Or swap any components (auth, database, AI, UI)?
+
+I can help you choose the best stack for your specific use case. See STACK_OPTIONS.md for all available alternatives.
 
 **Why verify both environments first?**
 Because you need a complete development workflow (local → GitHub → production) before building features. This ensures you can develop locally, test changes, and deploy them automatically.
