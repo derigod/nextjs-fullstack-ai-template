@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "disabled": true
+    },
+    "context7": {
+      "disabled": true
+    }
+  }
+}
